@@ -32,6 +32,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6286B7AA2BC0C2D00027E655 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				6286B7AB2BC0C2E20027E655 /* Map */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		6286B7AB2BC0C2E20027E655 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				6286B7AC2BC0C2EC0027E655 /* Model */,
+				6286B7AD2BC0C2F40027E655 /* View */,
+				6286B7AE2BC0C2FA0027E655 /* ViewModel */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		6286B7AC2BC0C2EC0027E655 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6286B7AD2BC0C2F40027E655 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6286B7AE2BC0C2FA0027E655 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6286B7AF2BC0C3080027E655 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6286B7B02BC0C3420027E655 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		6286B7B12BC0C3520027E655 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		6286B7B22BC0C3670027E655 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				62D5B4442BC0546400960DAE /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		62D5B4342BC0546200960DAE = {
 			isa = PBXGroup;
 			children = (
@@ -51,9 +119,13 @@
 		62D5B43F2BC0546200960DAE /* TrackUsersLocation */ = {
 			isa = PBXGroup;
 			children = (
+				6286B7AA2BC0C2D00027E655 /* Features */,
+				6286B7AF2BC0C3080027E655 /* Services */,
+				6286B7B02BC0C3420027E655 /* Utilities */,
+				6286B7B12BC0C3520027E655 /* Modifiers */,
+				6286B7B22BC0C3670027E655 /* Resources */,
 				62D5B4402BC0546200960DAE /* TrackUsersLocationApp.swift */,
 				62D5B4422BC0546200960DAE /* ContentView.swift */,
-				62D5B4442BC0546400960DAE /* Assets.xcassets */,
 				62D5B4462BC0546400960DAE /* Preview Content */,
 			);
 			path = TrackUsersLocation;
