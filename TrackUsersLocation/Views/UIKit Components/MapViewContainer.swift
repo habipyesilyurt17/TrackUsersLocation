@@ -40,7 +40,7 @@ struct MapViewContainer: UIViewRepresentable {
         
         // Mevcut marker'ları ekle
         mapView.removeAnnotations(mapView.annotations)
-        for marker in markers {
+        for marker in viewModel.loadMarkers() {
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(
                 latitude: marker.location.latitude,

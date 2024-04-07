@@ -42,10 +42,27 @@ final class MapViewModel: ObservableObject {
         locationManager.stopUpdatingLocation()
         isTracking = false
     }
+
+    func saveMarkers() {
+        let encoder = JSONEncoder()
+        if let encodedMarkers = try? encoder.encode(markers) {
+            UserDefaults.standard.set(encodedMarkers, forKey: "markers")
+        }
+    }
     
+    func loadMarkers() -> [Marker] {
+        if let savedMarkers = UserDefaults.standard.data(forKey: "markers") {
+            let decoder = JSONDecoder()
+            if let loadedMarkers = try? decoder.decode([Marker].self, from: savedMarkers) {
+                return loadedMarkers
+            }
+        }
+        return []
+    }
+
     func resetRoute() {
-        route = nil
         markers.removeAll()
+        UserDefaults.standard.removeObject(forKey: "markers")
         isTracking = false
     }
 
@@ -67,6 +84,7 @@ final class MapViewModel: ObservableObject {
                 subtitle: "Subtitle"
             )
             markers.append(newMarker)
+            saveMarkers()
         }
     }
 }

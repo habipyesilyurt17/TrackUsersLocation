@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Marker {
+struct Marker: Codable {
     var location: Location
     var title: String
     var subtitle: String
