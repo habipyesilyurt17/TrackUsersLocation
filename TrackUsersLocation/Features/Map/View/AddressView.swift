@@ -12,12 +12,20 @@ struct AddressView: View {
     var address: String
 
     var body: some View {
-        Text(address)
-            .font(.system(size: 14))
-            .foregroundColor(.white)
-            .multilineTextAlignment(.center)
-            .lineLimit(3)
-            .padding()
+        HStack {
+            Image(systemName: "mappin.circle.fill")
+                .font(.largeTitle)
+                .foregroundColor(.white)
+            Spacer()
+            Text(address)
+                .font(.system(size: 14))
+                .foregroundColor(.white)
+                .multilineTextAlignment(.leading)
+                .lineLimit(3)
+            Spacer()
+            Spacer()
+        }
+        .padding()
     }
 }
 

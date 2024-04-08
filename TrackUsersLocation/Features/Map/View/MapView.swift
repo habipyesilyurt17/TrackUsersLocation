@@ -41,7 +41,7 @@ struct MapView: View {
         if viewModel.isAddressViewVisible {
             AddressView(address: viewModel.markerAddress ?? "")
                 .frame(maxWidth: .infinity, maxHeight: 70)
-                .background(Color(red: 0, green: 0, blue: 0.5))
+                .background(Color.primaryColor)
                 .cornerRadius(12)
                 .transition(.move(edge: .top))
         }

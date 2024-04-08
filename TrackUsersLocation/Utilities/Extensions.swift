@@ -6,6 +6,7 @@
 //
 
 import CoreLocation
+import SwiftUI
 
 extension CLPlacemark {
     var compactAddress: String {
@@ -29,5 +30,17 @@ extension CLPlacemark {
             addressString = "Address not found"
         }
         return addressString
+    }
+}
+
+extension Color {
+    static var primaryColor: Color {
+        return Color(UIColor(red: 0, green: 0, blue: 0.5, alpha: 1.0))
+    }
+}
+
+extension UIColor {
+    static var primaryColor: UIColor {
+        return UIColor(red: 0, green: 0, blue: 0.5, alpha: 1.0)
     }
 }

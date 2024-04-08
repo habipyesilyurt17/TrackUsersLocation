@@ -19,12 +19,16 @@ final class MapViewCoordinator: NSObject, MKMapViewDelegate {
         guard annotation is MKPointAnnotation else { return nil }
 
         let identifier = "Marker"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
         if annotationView == nil {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
         } else {
             annotationView?.annotation = annotation
+        }
+
+        if parent.viewModel.isAddressViewVisible {
+            annotationView?.markerTintColor = UIColor.primaryColor
         }
 
         return annotationView
@@ -38,7 +42,7 @@ final class MapViewCoordinator: NSObject, MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let render = MKPolylineRenderer(overlay: overlay)
-        render.strokeColor = .blue
+        render.strokeColor = UIColor.primaryColor
         render.lineWidth = 6
         return render
     }
