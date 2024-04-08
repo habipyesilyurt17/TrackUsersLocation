@@ -19,6 +19,8 @@
 		62DCB1872BC1F6E500D64236 /* MapViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DCB1862BC1F6E500D64236 /* MapViewContainer.swift */; };
 		62DCB1892BC1F77800D64236 /* MapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DCB1882BC1F77800D64236 /* MapViewCoordinator.swift */; };
 		62DCB18B2BC1F85B00D64236 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DCB18A2BC1F85B00D64236 /* Modifiers.swift */; };
+		62E035D42BC36B920076BE78 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E035D32BC36B920076BE78 /* Extensions.swift */; };
+		62E035D62BC36C0A0076BE78 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E035D52BC36C0A0076BE78 /* AddressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		62DCB1862BC1F6E500D64236 /* MapViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewContainer.swift; sourceTree = "<group>"; };
 		62DCB1882BC1F77800D64236 /* MapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCoordinator.swift; sourceTree = "<group>"; };
 		62DCB18A2BC1F85B00D64236 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		62E035D32BC36B920076BE78 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		62E035D52BC36C0A0076BE78 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				62DCB1832BC1F66F00D64236 /* MapView.swift */,
+				62E035D52BC36C0A0076BE78 /* AddressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 		6286B7B02BC0C3420027E655 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				62E035D32BC36B920076BE78 /* Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -254,10 +260,12 @@
 				62D5B4412BC0546200960DAE /* TrackUsersLocationApp.swift in Sources */,
 				62DCB17C2BC1F46B00D64236 /* LocationManager.swift in Sources */,
 				62DCB18B2BC1F85B00D64236 /* Modifiers.swift in Sources */,
+				62E035D62BC36C0A0076BE78 /* AddressView.swift in Sources */,
 				62DCB1892BC1F77800D64236 /* MapViewCoordinator.swift in Sources */,
 				62DCB17E2BC1F4A300D64236 /* MapViewModel.swift in Sources */,
 				62DCB1872BC1F6E500D64236 /* MapViewContainer.swift in Sources */,
 				62DCB1822BC1F55600D64236 /* Location.swift in Sources */,
+				62E035D42BC36B920076BE78 /* Extensions.swift in Sources */,
 				62DCB1802BC1F53B00D64236 /* Marker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

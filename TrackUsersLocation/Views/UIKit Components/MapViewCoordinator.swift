@@ -29,4 +29,10 @@ final class MapViewCoordinator: NSObject, MKMapViewDelegate {
 
         return annotationView
     }
+
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let annotation = view.annotation else { return }
+        parent.viewModel.fetchAddress(for: annotation.coordinate)
+        parent.viewModel.isAddressViewVisible.toggle()
+    }
 }

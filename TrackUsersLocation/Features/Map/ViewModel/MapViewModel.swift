@@ -21,6 +21,12 @@ final class MapViewModel: ObservableObject {
     var route: MKRoute?
     @Published 
     var markers: [Marker] = []
+    @Published
+    var markerAddress: String? = nil
+    @Published
+    var isAddressViewVisible = false
+
+    private let geocoder = CLGeocoder()
     
     init() {
         locationManager.$currentLocation
@@ -85,6 +91,22 @@ final class MapViewModel: ObservableObject {
             )
             markers.append(newMarker)
             saveMarkers()
+        }
+    }
+
+    func fetchAddress(for coordinate: CLLocationCoordinate2D) {
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+            if let _ = error {
+                self.markerAddress = nil
+                return
+            }
+            
+            if let placemark = placemarks?.first {
+                self.markerAddress = placemark.compactAddress
+            } else {
+                self.markerAddress = nil
+            }
         }
     }
 }

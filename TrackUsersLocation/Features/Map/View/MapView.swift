@@ -16,7 +16,12 @@ struct MapView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             mapViewContainer()
-            actionButtons()
+            VStack {
+                addressView()
+                Spacer()
+                actionButtons()
+            }
+            .padding(.horizontal, 16)
         }
     }
     
@@ -29,6 +34,17 @@ struct MapView: View {
             viewModel: viewModel
         )
         .edgesIgnoringSafeArea(.all)
+    }
+    
+    @ViewBuilder
+    private func addressView() -> some View {
+        if viewModel.isAddressViewVisible {
+            AddressView(address: viewModel.markerAddress ?? "")
+                .frame(maxWidth: .infinity, maxHeight: 70)
+                .background(Color(red: 0, green: 0, blue: 0.5))
+                .cornerRadius(12)
+                .transition(.move(edge: .top))
+        }
     }
     
     @ViewBuilder
@@ -52,7 +68,6 @@ struct MapView: View {
             }
             .buttonStyle(BlueButton())
         }
-        .padding(.horizontal, 16)
         .padding(.bottom, 24)
     }
 }
