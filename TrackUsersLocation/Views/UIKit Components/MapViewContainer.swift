@@ -24,6 +24,11 @@ struct MapViewContainer: UIViewRepresentable {
         let mapView = MKMapView()
         mapView.showsUserLocation = true
         mapView.delegate = context.coordinator
+        
+        if !markers.isEmpty {
+            viewModel.calculateRouteIfNeeded()
+        }
+
         return mapView
     }
 
@@ -37,24 +42,28 @@ struct MapViewContainer: UIViewRepresentable {
             )
             mapView.setRegion(region, animated: true)
         }
-        
-        // Mevcut marker'ları ekle
-        mapView.removeAnnotations(mapView.annotations)
-        for marker in viewModel.loadMarkers() {
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(
-                latitude: marker.location.latitude,
-                longitude: marker.location.longitude
-            )
-            annotation.title = marker.title
-            annotation.subtitle = marker.subtitle
-            mapView.addAnnotation(annotation)
+
+        if !markers.isEmpty {
+            mapView.removeAnnotations(mapView.annotations)
+            for marker in markers {
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2D(
+                    latitude: marker.location.latitude,
+                    longitude: marker.location.longitude
+                )
+                annotation.title = marker.title
+                annotation.subtitle = marker.subtitle
+                mapView.addAnnotation(annotation)
+            }
+            
+            if let route = route {
+                mapView.addOverlay(route.polyline)
+                mapView.setVisibleMapRect(
+                   route.polyline.boundingMapRect,
+                   edgePadding: UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50),
+                   animated: true)
+            }
         }
-        
-        // Rotayı sıfırladıktan sonra haritayı güncelle
-         if viewModel.route == nil {
-             mapView.removeOverlays(mapView.overlays)
-         }
     }
 
     func makeCoordinator() -> MapViewCoordinator {

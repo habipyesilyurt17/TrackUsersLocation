@@ -21,6 +21,7 @@
 		62DCB18B2BC1F85B00D64236 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DCB18A2BC1F85B00D64236 /* Modifiers.swift */; };
 		62E035D42BC36B920076BE78 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E035D32BC36B920076BE78 /* Extensions.swift */; };
 		62E035D62BC36C0A0076BE78 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E035D52BC36C0A0076BE78 /* AddressView.swift */; };
+		62E035DA2BC438990076BE78 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E035D92BC438990076BE78 /* LocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		62DCB18A2BC1F85B00D64236 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		62E035D32BC36B920076BE78 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		62E035D52BC36C0A0076BE78 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		62E035D92BC438990076BE78 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				62DCB17B2BC1F46B00D64236 /* LocationManager.swift */,
+				62E035D92BC438990076BE78 /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				62DCB1892BC1F77800D64236 /* MapViewCoordinator.swift in Sources */,
 				62DCB17E2BC1F4A300D64236 /* MapViewModel.swift in Sources */,
 				62DCB1872BC1F6E500D64236 /* MapViewContainer.swift in Sources */,
+				62E035DA2BC438990076BE78 /* LocationService.swift in Sources */,
 				62DCB1822BC1F55600D64236 /* Location.swift in Sources */,
 				62E035D42BC36B920076BE78 /* Extensions.swift in Sources */,
 				62DCB1802BC1F53B00D64236 /* Marker.swift in Sources */,

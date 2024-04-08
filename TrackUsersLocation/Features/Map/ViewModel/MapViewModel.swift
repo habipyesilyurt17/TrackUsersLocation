@@ -13,6 +13,7 @@ import SwiftUI
 final class MapViewModel: ObservableObject {
     
     var locationManager = LocationManager()
+    private var locationService = LocationService()
     private var cancellables = Set<AnyCancellable>()
     
     @Published 
@@ -37,6 +38,8 @@ final class MapViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
+        
+        loadMarkers()
     }
     
     func startTracking() {
@@ -56,14 +59,13 @@ final class MapViewModel: ObservableObject {
         }
     }
     
-    func loadMarkers() -> [Marker] {
+    func loadMarkers() {
         if let savedMarkers = UserDefaults.standard.data(forKey: "markers") {
             let decoder = JSONDecoder()
             if let loadedMarkers = try? decoder.decode([Marker].self, from: savedMarkers) {
-                return loadedMarkers
+                self.markers = loadedMarkers
             }
         }
-        return []
     }
 
     func resetRoute() {
@@ -108,5 +110,33 @@ final class MapViewModel: ObservableObject {
                 self.markerAddress = nil
             }
         }
+    }
+    
+    func calculateRouteIfNeeded() {
+        guard markers.count > 1 else {
+            return
+        }
+
+        guard let sourceCoordinate = coordinate(from: markers.first?.location),
+              let destinationCoordinate = coordinate(from: markers.last?.location) else {
+            return
+        }
+        
+        locationService.calculateRoute(from: sourceCoordinate, to: destinationCoordinate) { result in
+            DispatchQueue.main.async {
+                switch result {
+                    case .success(let route):
+                        self.route = route
+                    case .failure(let error):
+                        print("Route calculation error: \(error)")
+                        self.route = nil
+                }
+            }
+        }
+    }
+    
+    private func coordinate(from location: Location?) -> CLLocationCoordinate2D? {
+        guard let location = location else { return nil }
+        return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
     }
 }

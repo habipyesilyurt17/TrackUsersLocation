@@ -35,4 +35,11 @@ final class MapViewCoordinator: NSObject, MKMapViewDelegate {
         parent.viewModel.fetchAddress(for: annotation.coordinate)
         parent.viewModel.isAddressViewVisible.toggle()
     }
+
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let render = MKPolylineRenderer(overlay: overlay)
+        render.strokeColor = .blue
+        render.lineWidth = 6
+        return render
+    }
 }
