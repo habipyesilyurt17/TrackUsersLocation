@@ -56,12 +56,16 @@ struct MapViewContainer: UIViewRepresentable {
             }
             
             if let route = route {
+                mapView.removeOverlays(mapView.overlays)
                 mapView.addOverlay(route.polyline)
                 mapView.setVisibleMapRect(
                    route.polyline.boundingMapRect,
                    edgePadding: UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50),
                    animated: true)
             }
+        } else {
+            mapView.removeAnnotations(mapView.annotations)
+            mapView.removeOverlays(mapView.overlays)
         }
     }
 

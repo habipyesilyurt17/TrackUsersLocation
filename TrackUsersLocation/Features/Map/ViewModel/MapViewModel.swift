@@ -72,6 +72,7 @@ final class MapViewModel: ObservableObject {
         markers.removeAll()
         UserDefaults.standard.removeObject(forKey: "markers")
         isTracking = false
+        route = nil
     }
 
     private func addMarkerIfNeeded(location: CLLocation) {

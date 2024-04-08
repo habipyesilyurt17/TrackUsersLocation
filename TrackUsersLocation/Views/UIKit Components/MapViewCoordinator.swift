@@ -27,10 +27,6 @@ final class MapViewCoordinator: NSObject, MKMapViewDelegate {
             annotationView?.annotation = annotation
         }
 
-        if parent.viewModel.isAddressViewVisible {
-            annotationView?.markerTintColor = UIColor.primaryColor
-        }
-
         return annotationView
     }
 
@@ -42,7 +38,7 @@ final class MapViewCoordinator: NSObject, MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let render = MKPolylineRenderer(overlay: overlay)
-        render.strokeColor = UIColor.primaryColor
+        render.strokeColor = .primaryColor
         render.lineWidth = 6
         return render
     }
