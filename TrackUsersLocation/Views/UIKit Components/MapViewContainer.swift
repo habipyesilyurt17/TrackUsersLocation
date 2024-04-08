@@ -33,7 +33,6 @@ struct MapViewContainer: UIViewRepresentable {
     }
 
     func updateUIView(_ mapView: MKMapView, context: Context) {
-        // Harita görüntüsünü güncelle
         if let currentLocation = viewModel.locationManager.currentLocation {
             let region = MKCoordinateRegion(
                 center: currentLocation.coordinate,
